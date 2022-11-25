@@ -26,6 +26,13 @@ public class RecIntList {
 	}
 
 	public int size() {
+	    /**
+		 * can be rewritten as
+		 * if(head==null)
+		 * return 0;
+		 * else
+		 * return head.size();
+		*/
 		return head == null ? 0 : head.size();
 	}
 
