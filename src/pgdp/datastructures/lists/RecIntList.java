@@ -75,6 +75,7 @@ public class RecIntList {
 			long kleinerr = kleiner;
 			long gleichh = gleich;
 			long grosserr = grosser;
+			i=0;
 			kleiner = 0;
 			gleich = 0;
 			grosser = 0;
@@ -93,9 +94,43 @@ public class RecIntList {
 			return countThresh(threshold);
 		}
 
-
+		//private
+	private RecIntList x;
+	private int previouss;
+	private int g=0;
 	public void kinguinSort(boolean increasing) {
 		// TODO
+		if(g+1>=size()){
+			g=0;
+			this.head=x.head;
+			return;
+		}
+
+		if(g==0){
+			x=new RecIntList();
+			previouss=get(g);
+			x.append(get(g));
+			g++;
+			kinguinSort(increasing);
+		}
+		if (increasing){
+			if (previouss<=get(g)){
+				x.append(get(g));
+				previouss=get(g);
+
+			}
+			g++;
+			kinguinSort(increasing);
+		}
+		if(!increasing){
+			if (previouss>=get(g)){
+				x.append(get(g));
+				previouss=get(g);
+
+			}
+			g++;
+			kinguinSort(increasing);
+		}
 	}
 
 	public void reverse() {
@@ -114,6 +149,7 @@ public class RecIntList {
 		}
 		System.out.println(Arrays.toString(countThreshExample.countThresh(3)));
 
+
 		// kinguinSort example (1)
 		RecIntList kinguinSortExample = new RecIntList();
 		int[] kinguinSortvalues = new int[] { 3, 2, 4, 7, 1, 6, 5, 9, 8 };
@@ -122,6 +158,7 @@ public class RecIntList {
 		}
 		kinguinSortExample.kinguinSort(true); // false for example (2)
 		System.out.println(kinguinSortExample);
+
 
 		// reverse example
 		RecIntList reverseExample = new RecIntList();
