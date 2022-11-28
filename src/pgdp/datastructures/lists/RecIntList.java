@@ -65,10 +65,34 @@ public class RecIntList {
 			return "Empty list";
 		}
 	}
-
+	private int i=0;
+	private long kleiner=0;
+	private long gleich=0;
+	private long grosser=0;
 	public long[] countThresh(int threshold) {
 		// TODO
-		return null;
+
+		if (get(i)>threshold){
+			grosser+=get(i);
+		}
+		else if(get(i)<threshold){
+			kleiner+=get(i);
+		}
+		else{
+			gleich+=get(i);
+		}
+		i++;
+		if(i<size()){
+			i++;
+			return countThresh(threshold);
+		}
+		long kleinerr=kleiner;
+		long gleichh=gleich;
+		long grosserr=grosser;
+		kleiner=0;
+		gleich=0;
+		grosser=0;
+		return new long[]{kleinerr,gleichh,grosserr};
 	}
 
 	public void kinguinSort(boolean increasing) {
