@@ -71,29 +71,28 @@ public class RecIntList {
 	private long grosser=0;
 	public long[] countThresh(int threshold) {
 		// TODO
+		if (size() == i) {
+			long kleinerr = kleiner;
+			long gleichh = gleich;
+			long grosserr = grosser;
+			kleiner = 0;
+			gleich = 0;
+			grosser = 0;
+			return new long[]{kleinerr, gleichh, grosserr};
+		}
 
-		if (get(i)>threshold){
-			grosser+=get(i);
+		if (get(i) > threshold) {
+			grosser += get(i);
+		} else if (get(i) < threshold) {
+			kleiner += get(i);
+		} else {
+			gleich += get(i);
 		}
-		else if(get(i)<threshold){
-			kleiner+=get(i);
-		}
-		else{
-			gleich+=get(i);
-		}
+
 		i++;
-		if(i<size()){
-			i++;
 			return countThresh(threshold);
 		}
-		long kleinerr=kleiner;
-		long gleichh=gleich;
-		long grosserr=grosser;
-		kleiner=0;
-		gleich=0;
-		grosser=0;
-		return new long[]{kleinerr,gleichh,grosserr};
-	}
+
 
 	public void kinguinSort(boolean increasing) {
 		// TODO
