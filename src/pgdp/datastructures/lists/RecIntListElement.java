@@ -4,10 +4,8 @@ public class RecIntListElement {
 	private int value;
 	private RecIntListElement next;
 	private RecIntListElement prev;
-	private RecIntListElement head;
 
 	public RecIntListElement(int value) {
-		//this.head=new RecIntListElement(value);
 		this(value, null);
 	}
 
@@ -104,9 +102,27 @@ public class RecIntListElement {
 	public void delete() {
 		if (next != null)
 			next = next.next;
+
 	}
 
 	public RecIntListElement getNext() {
 		return next;
+	}
+	public void exchange(RecIntListElement r) {
+		RecIntListElement x=r;
+		r.next=r.prev;
+		r.prev=x.next;
+	}
+
+	public void setNext(RecIntListElement next) {
+		this.next = next;
+	}
+
+	public RecIntListElement getPrev() {
+		return prev;
+	}
+
+	public void setPrev(RecIntListElement prev) {
+		this.prev = prev;
 	}
 }

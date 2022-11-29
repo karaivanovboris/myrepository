@@ -93,7 +93,7 @@ public class RecIntList {
 			return countThresh(threshold);
 		}
 
-private int previouss=0;
+	private int previouss=0;
 	private int g=0;
 	public void kinguinSort(boolean increasing) {
 		if (g+1>=size()){
@@ -108,6 +108,8 @@ private int previouss=0;
 		if(increasing){
 			if (get(g)<previouss){
 				getElement(g-1).delete();
+				if (g+1<size()){
+				getElement(g+1).setPrev(getElement(g));}
 			}
 			else{previouss=get(g);
 				g++;}
@@ -117,6 +119,9 @@ private int previouss=0;
 		if(!increasing){
 			if (get(g)>previouss){
 				getElement(g-1).delete();
+				if (g+1<size()){
+					getElement(g+1).setPrev(getElement(g));}
+			}
 				kinguinSort(increasing);
 			}
 			else{previouss=get(g);
@@ -124,10 +129,16 @@ private int previouss=0;
 
 			kinguinSort(increasing);
 		}
-	}
+
+	private int m=0;
 
 	public void reverse() {
 		// TODO
+		if(m==0){
+			this.head=getElement(size()-1);
+			m=size()-1;
+		}
+
 	}
 
 	public static void zip(RecIntList l1, RecIntList l2) {
@@ -145,7 +156,7 @@ private int previouss=0;
 
 		// kinguinSort example (1)
 		RecIntList kinguinSortExample = new RecIntList();
-		int[] kinguinSortvalues = new int[] {3,2,4,7,1,6,5,9,8};
+		int[] kinguinSortvalues = new int[] {2,4,7,3,21,2};
 		for (int i : kinguinSortvalues) {
 			kinguinSortExample.append(i);
 		}
