@@ -8,7 +8,6 @@ public class RecIntList {
 	public RecIntList() {
 		head = null;
 	}
-
 	public void append(int value) {
 		if (head == null) {
 			head = new RecIntListElement(value);
@@ -94,40 +93,36 @@ public class RecIntList {
 			return countThresh(threshold);
 		}
 
-	private RecIntList x;
-	private int previouss;
+private int previouss=0;
 	private int g=0;
 	public void kinguinSort(boolean increasing) {
-		// TODO
-		if(g+1>=size()){
-			g=0;
-			this.head=x.head;
+		if (g+1>=size()){
 			return;
 		}
-
-		if(g==0){
-			x=new RecIntList();
-			previouss=get(g);
-			x.append(get(g));
-			g++;
+		if (g==0){
+		previouss=getElement(g).getValue();
+		g++;
+		kinguinSort(increasing);
+		}
+		// TODO
+		if(increasing){
+		if (get(g)<previouss){
+			getElement(g-1).delete();
 			kinguinSort(increasing);
 		}
-		if (increasing){
-			if (previouss<=get(g)){
-				x.append(get(g));
-				previouss=get(g);
+		else{previouss=get(g);
+			g++;}
 
-			}
-			g++;
-			kinguinSort(increasing);
+		kinguinSort(increasing);
 		}
 		if(!increasing){
-			if (previouss>=get(g)){
-				x.append(get(g));
-				previouss=get(g);
-
+			if (get(g)>previouss){
+				getElement(g-1).delete();
+				kinguinSort(increasing);
 			}
-			g++;
+			else{previouss=get(g);
+				g++;}
+
 			kinguinSort(increasing);
 		}
 	}
@@ -155,8 +150,14 @@ public class RecIntList {
 		for (int i : kinguinSortvalues) {
 			kinguinSortExample.append(i);
 		}
+		/*System.out.println("predi delete na element 2 :"+ kinguinSortExample);
+		System.out.println("predi delete value na element 2 :"+ kinguinSortExample.getElement(2).getValue());;
+		kinguinSortExample.getElement(2-1).delete();
+		System.out.println("after delete na element 2 :"+ kinguinSortExample);
+		System.out.println("nov element 2:" + kinguinSortExample.getElement(2).getValue());*/
 		kinguinSortExample.kinguinSort(true); // false for example (2)
-		System.out.println(kinguinSortExample);
+		System.out.println("kraino :"+ kinguinSortExample);
+
 
 
 		// reverse example
@@ -178,5 +179,16 @@ public class RecIntList {
 		l1.append(8);
 		RecIntList.zip(l1, l2);
 		System.out.println(l1);
+	}
+	///////////////////////
+
+
+
+
+	public RecIntListElement getElement(int idx) {
+		if (idx == 0) {
+			return head;
+		}
+		return getElement(idx - 1).getNext();
 	}
 }

@@ -4,8 +4,10 @@ public class RecIntListElement {
 	private int value;
 	private RecIntListElement next;
 	private RecIntListElement prev;
+	private RecIntListElement head;
 
 	public RecIntListElement(int value) {
+		//this.head=new RecIntListElement(value);
 		this(value, null);
 	}
 
@@ -94,19 +96,17 @@ public class RecIntListElement {
 		} while (tmp != null);
 		return sb.toString();
 	}
-////////////////////////////////////////////
+	///////////////////////////////////////
+
+	public int getValue() {
+		return value;
+	}
+	public void delete() {
+		if (next != null)
+			next = next.next;
+	}
+
 	public RecIntListElement getNext() {
 		return next;
-	}
-	public RecIntListElement skiptoNext(){
-		return this.next=getNext().getNext();
-	}
-
-	public void setNext(RecIntListElement next) {
-		this.next = next;
-	}
-
-	public int getValue(){
-		return this.value;
 	}
 }
