@@ -109,7 +109,7 @@ public class RecIntList {
 			if (get(g)<previouss){
 				getElement(g-1).delete();
 				if (g+1<size()){
-				getElement(g+1).setPrev(getElement(g));}
+				getElement(g).setPrev(getElement(g-1));}
 			}
 			else{previouss=get(g);
 				g++;}
@@ -120,7 +120,7 @@ public class RecIntList {
 			if (get(g)>previouss){
 				getElement(g-1).delete();
 				if (g+1<size()){
-					getElement(g+1).setPrev(getElement(g));}
+					getElement(g).setPrev(getElement(g-1));}
 				kinguinSort(increasing);
 			}
 			else{previouss=get(g);
