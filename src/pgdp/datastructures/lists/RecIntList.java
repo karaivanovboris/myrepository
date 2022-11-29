@@ -129,8 +129,8 @@ public class RecIntList {
 			kinguinSort(increasing);
 		}
 	}
-	private int m=0;
 
+	private int m=0;
 	public void reverse() {
 		// TODO
 		if(m==0){

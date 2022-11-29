@@ -4,6 +4,7 @@ public class RecIntListElement {
 	private int value;
 	private RecIntListElement next;
 	private RecIntListElement prev;
+	private RecIntListElement prev2;
 
 	public RecIntListElement(int value) {
 		this(value, null);
@@ -13,6 +14,7 @@ public class RecIntListElement {
 		this.value = value;
 		next = null;
 		this.prev = prev;
+		//this.prev2=prev;
 	}
 
 	public RecIntListElement append(int value) {
