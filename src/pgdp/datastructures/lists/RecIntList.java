@@ -94,7 +94,6 @@ public class RecIntList {
 			return countThresh(threshold);
 		}
 
-		//private
 	private RecIntList x;
 	private int previouss;
 	private int g=0;

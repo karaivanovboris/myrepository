@@ -94,4 +94,19 @@ public class RecIntListElement {
 		} while (tmp != null);
 		return sb.toString();
 	}
+////////////////////////////////////////////
+	public RecIntListElement getNext() {
+		return next;
+	}
+	public RecIntListElement skiptoNext(){
+		return this.next=getNext().getNext();
+	}
+
+	public void setNext(RecIntListElement next) {
+		this.next = next;
+	}
+
+	public int getValue(){
+		return this.value;
+	}
 }
