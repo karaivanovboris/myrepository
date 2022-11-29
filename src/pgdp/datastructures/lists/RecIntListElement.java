@@ -14,7 +14,7 @@ public class RecIntListElement {
 		this.value = value;
 		next = null;
 		this.prev = prev;
-		//this.prev2=prev;
+		this.prev2=prev;
 	}
 
 	public RecIntListElement append(int value) {
