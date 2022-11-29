@@ -121,7 +121,6 @@ public class RecIntList {
 				getElement(g-1).delete();
 				if (g+1<size()){
 					getElement(g+1).setPrev(getElement(g));}
-			}
 				kinguinSort(increasing);
 			}
 			else{previouss=get(g);
@@ -129,7 +128,7 @@ public class RecIntList {
 
 			kinguinSort(increasing);
 		}
-
+	}
 	private int m=0;
 
 	public void reverse() {
@@ -160,7 +159,7 @@ public class RecIntList {
 		for (int i : kinguinSortvalues) {
 			kinguinSortExample.append(i);
 		}
-		kinguinSortExample.kinguinSort(true); // false for example (2)
+		kinguinSortExample.kinguinSort(false); // false for example (2)
 		System.out.println(kinguinSortExample);
 
 
