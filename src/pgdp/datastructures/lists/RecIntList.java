@@ -106,14 +106,13 @@ private int previouss=0;
 		}
 		// TODO
 		if(increasing){
-		if (get(g)<previouss){
-			getElement(g-1).delete();
-			kinguinSort(increasing);
-		}
-		else{previouss=get(g);
-			g++;}
+			if (get(g)<previouss){
+				getElement(g-1).delete();
+			}
+			else{previouss=get(g);
+				g++;}
 
-		kinguinSort(increasing);
+			kinguinSort(increasing);
 		}
 		if(!increasing){
 			if (get(g)>previouss){
@@ -146,17 +145,12 @@ private int previouss=0;
 
 		// kinguinSort example (1)
 		RecIntList kinguinSortExample = new RecIntList();
-		int[] kinguinSortvalues = new int[] { 3, 2, 4, 7, 1, 6, 5, 9, 8 };
+		int[] kinguinSortvalues = new int[] {3,2,4,7,1,6,5,9,8};
 		for (int i : kinguinSortvalues) {
 			kinguinSortExample.append(i);
 		}
-		/*System.out.println("predi delete na element 2 :"+ kinguinSortExample);
-		System.out.println("predi delete value na element 2 :"+ kinguinSortExample.getElement(2).getValue());;
-		kinguinSortExample.getElement(2-1).delete();
-		System.out.println("after delete na element 2 :"+ kinguinSortExample);
-		System.out.println("nov element 2:" + kinguinSortExample.getElement(2).getValue());*/
 		kinguinSortExample.kinguinSort(true); // false for example (2)
-		System.out.println("kraino :"+ kinguinSortExample);
+		System.out.println(kinguinSortExample);
 
 
 
@@ -182,10 +176,7 @@ private int previouss=0;
 	}
 	///////////////////////
 
-
-
-
-	public RecIntListElement getElement(int idx) {
+	private RecIntListElement getElement(int idx) {
 		if (idx == 0) {
 			return head;
 		}
