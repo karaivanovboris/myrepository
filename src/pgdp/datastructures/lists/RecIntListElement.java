@@ -126,6 +126,11 @@ public class RecIntListElement {
 	public void setPrev(RecIntListElement prev) {
 		this.prev = prev;
 	}
+	public void zipp(RecIntListElement a,RecIntListElement b){
+
+	}
+
+
 	//////////////////////////////////////////////!!!!!!!!!
 /*	public int get2(int idx) {
 		if (idx == 0) {

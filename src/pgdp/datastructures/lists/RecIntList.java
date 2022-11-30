@@ -3,6 +3,7 @@ package pgdp.datastructures.lists;
 import java.util.Arrays;
 
 public class RecIntList {
+
 	private RecIntListElement head;
 
 	public RecIntList() {
@@ -130,7 +131,6 @@ public class RecIntList {
 		}
 	}
 
-	private int m=1;
 	public void reverse() {/*
 		// TODO
 		if(m+2==size()){
@@ -144,9 +144,26 @@ public class RecIntList {
 		m++;
 		reverse();*/
 	}
-
+public static int l=0;
+public static int n=0;
+public static int embrake=0;
+public static boolean checker=true;
 	public static void zip(RecIntList l1, RecIntList l2) {
 		// TODO
+		//if(l+2>=l2.size()){return;}
+		if(l2.getElement(1)==null){
+			l2.getElement(0).setNext(l1.getElement(l+1));
+			l1.getElement(l).setNext(l2.getElement(0));
+			return;
+		}
+		if(l2.getElement(1)!=null){
+		l2.head=l2.getElement(1);
+		l2.head.getPrev().setNext(l1.getElement(l+1));
+		l1.getElement(l).setNext(l2.head.getPrev());
+		l+=2;
+		zip(l1,l2);}
+
+
 	}
 
 	public static void main(String[] args) {
@@ -164,7 +181,6 @@ public class RecIntList {
 		for (int i : kinguinSortvalues) {
 			kinguinSortExample.append(i);
 		}
-		System.out.println(kinguinSortExample.getElement(2).getValue());
 		kinguinSortExample.kinguinSort(false); // false for example (2)
 		System.out.println(kinguinSortExample);
 
@@ -191,12 +207,14 @@ public class RecIntList {
 		System.out.println(l1);
 	}
 	///////////////////////
-	private RecIntListElement getElement(int idx) {
+	public RecIntListElement getElement(int idx) {
 		if (idx == 0) {
 			return head;
 		}
 		return getElement(idx - 1).getNext();
 	}
+	//public void fix(RecIntList r){}
+
 	/////////////////!!!!!!!!!!!
 	/*private RecIntListElement getElement2(int idxt) {
 		if (idxt == 0) {
