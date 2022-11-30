@@ -4,8 +4,10 @@ public class RecIntListElement {
 	private int value;
 	private RecIntListElement next;
 	private RecIntListElement prev;
-	private RecIntListElement prev2;
-
+	///////////////////////////////////////
+	//private RecIntListElement prev2;
+	//private RecIntListElement next2;
+///////////////////////////////////
 	public RecIntListElement(int value) {
 		this(value, null);
 	}
@@ -14,9 +16,11 @@ public class RecIntListElement {
 		this.value = value;
 		next = null;
 		this.prev = prev;
-		this.prev2=prev;
+		///////////////
+		//next2=null;
+		//this.prev2=prev;
 	}
-
+//_-_-_-_-_____-_-------__-_
 	public RecIntListElement append(int value) {
 		if (next != null) {
 			return next.append(value);
@@ -25,7 +29,7 @@ public class RecIntListElement {
 			return next;
 		}
 	}
-
+//-------------------->
 	public int get(int idx) {
 		if (idx == 0) {
 			return value;
@@ -36,7 +40,7 @@ public class RecIntListElement {
 		}
 		return next.get(idx - 1);
 	}
-
+//--------->
 	public int size() {
 		if (next == null) {
 			return 1;
@@ -110,11 +114,6 @@ public class RecIntListElement {
 	public RecIntListElement getNext() {
 		return next;
 	}
-	public void exchange(RecIntListElement r) {
-		RecIntListElement x=r;
-		r.next=r.prev;
-		r.prev=x.next;
-	}
 
 	public void setNext(RecIntListElement next) {
 		this.next = next;
@@ -127,4 +126,47 @@ public class RecIntListElement {
 	public void setPrev(RecIntListElement prev) {
 		this.prev = prev;
 	}
+	//////////////////////////////////////////////!!!!!!!!!
+/*	public int get2(int idx) {
+		if (idx == 0) {
+			return value;
+		}
+		if (next == null) {
+			System.out.println("Invalid index: list is to short!");
+			return Integer.MIN_VALUE;
+		}
+		return next2.get2(idx - 1);
+	}
+	private RecIntListElement x=null;
+
+	public void swish(RecIntListElement R){
+
+		x=R.next;
+
+		R.next=R.prev;
+
+		R.prev=x;
+	}
+
+
+	public void setPrev2(RecIntListElement prev2) {
+		this.prev2 = prev2;
+	}
+
+	public RecIntListElement getPrev2() {
+		return prev2;
+	}
+
+	public void setNext2(RecIntListElement next2) {
+		this.next2 = next2;
+	}
+
+	public RecIntListElement getNext2() {
+		return next2;
+	}
+
+	public void setValue(int value) {
+		this.value = value;
+	}
+	///////////////////!!!!!!!*/
 }

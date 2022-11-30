@@ -130,14 +130,19 @@ public class RecIntList {
 		}
 	}
 
-	private int m=0;
-	public void reverse() {
+	private int m=1;
+	public void reverse() {/*
 		// TODO
-		if(m==0){
-			this.head=getElement(size()-1);
-			m=size()-1;
+		if(m+2==size()){
+			//getElement(0).setNext(null);
+			this.head=getElement2(size()-1);
+			getElement2(size()-1).setNext(getElement2(size()-2));
+			//getElement2(size()-1).setPrev(null);
+			return;
 		}
-
+		getElement2(m).swish(getElement2(m));
+		m++;
+		reverse();*/
 	}
 
 	public static void zip(RecIntList l1, RecIntList l2) {
@@ -159,6 +164,7 @@ public class RecIntList {
 		for (int i : kinguinSortvalues) {
 			kinguinSortExample.append(i);
 		}
+		System.out.println(kinguinSortExample.getElement(2).getValue());
 		kinguinSortExample.kinguinSort(false); // false for example (2)
 		System.out.println(kinguinSortExample);
 
@@ -185,11 +191,17 @@ public class RecIntList {
 		System.out.println(l1);
 	}
 	///////////////////////
-
 	private RecIntListElement getElement(int idx) {
 		if (idx == 0) {
 			return head;
 		}
 		return getElement(idx - 1).getNext();
 	}
+	/////////////////!!!!!!!!!!!
+	/*private RecIntListElement getElement2(int idxt) {
+		if (idxt == 0) {
+			return head;
+		}
+		return getElement2(idxt - 1).getNext2();
+	}*/
 }
