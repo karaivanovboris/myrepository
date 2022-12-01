@@ -131,40 +131,45 @@ public class RecIntList {
 		}
 	}
 
-	public void reverse() {/*
+	public void reverse() {
 		// TODO
-		if(m+2==size()){
-			//getElement(0).setNext(null);
-			this.head=getElement2(size()-1);
-			getElement2(size()-1).setNext(getElement2(size()-2));
-			//getElement2(size()-1).setPrev(null);
-			return;
-		}
-		getElement2(m).swish(getElement2(m));
-		m++;
-		reverse();*/
 	}
 public static int l=0;
-public static int n=0;
-public static int embrake=0;
-public static boolean checker=true;
 	public static void zip(RecIntList l1, RecIntList l2) {
 		// TODO
-		//if(l+2>=l2.size()){return;}
-		if(l2.getElement(1)==null){
-			l2.getElement(0).setNext(l1.getElement(l+1));
-			l1.getElement(l).setNext(l2.getElement(0));
-			return;
+		//if(l1.head==null&&l2.head==null){return;}
+
+		if(l2.head==null){l=0;return;}
+
+		if(l1.head==null&&l2.head!=null){l1.head=l2.head;l=0;
+			return;}
+
+			if(l1.getElement(l).getNext()==null){
+				l1.getElement(l).setNext(l2.head);
+				l2.head.setPrev(l1.getElement(l));
+				l=0;
+				return;
+			}
+
+			if (l2.getElement(1) == null&&l1.getElement(l).getNext()!=null) {
+				l2.head.setNext(l1.getElement(l + 1));
+				l1.getElement(l).setNext(l2.getElement(0));
+				//============>
+				l2.head.setPrev(l1.getElement(l));
+					l1.getElement(l + 2).setPrev(l2.head);
+					l=0;
+				return;
+			}
+
+			l2.head = l2.getElement(1);
+			l2.head.getPrev().setNext(l1.getElement(l + 1));
+			l1.getElement(l).setNext(l2.head.getPrev());
+			/////==============?
+			l2.head.getPrev().setPrev(l1.getElement(l));
+			l1.getElement(l + 2).setPrev(l2.head.getPrev());
+			l += 2;
+			zip(l1, l2);
 		}
-		if(l2.getElement(1)!=null){
-		l2.head=l2.getElement(1);
-		l2.head.getPrev().setNext(l1.getElement(l+1));
-		l1.getElement(l).setNext(l2.head.getPrev());
-		l+=2;
-		zip(l1,l2);}
-
-
-	}
 
 	public static void main(String[] args) {
 		// countThresh example
@@ -201,8 +206,8 @@ public static boolean checker=true;
 			l1.append(i);
 			l2.append(i + 1);
 		}
-		l1.append(7);
-		l1.append(8);
+		//l2.append(7);
+		l2.append(8);
 		RecIntList.zip(l1, l2);
 		System.out.println(l1);
 	}
@@ -213,13 +218,4 @@ public static boolean checker=true;
 		}
 		return getElement(idx - 1).getNext();
 	}
-	//public void fix(RecIntList r){}
-
-	/////////////////!!!!!!!!!!!
-	/*private RecIntListElement getElement2(int idxt) {
-		if (idxt == 0) {
-			return head;
-		}
-		return getElement2(idxt - 1).getNext2();
-	}*/
 }
