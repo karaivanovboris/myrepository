@@ -133,7 +133,7 @@ public class RecIntList {
 
 	public void reverse() {
 		// TODO
-		if (size()!=0){return;}
+		if (size()==0){return;}
 		if(head.getNext()!=null) {
 			head = head.getNext();
 			head.getPrev().swish();
