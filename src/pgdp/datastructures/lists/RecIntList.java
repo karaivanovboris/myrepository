@@ -133,14 +133,14 @@ public class RecIntList {
 
 	public void reverse() {
 		// TODO
-		if (size()!=0){
+		if (size()!=0){return;}
 		if(head.getNext()!=null) {
 			head = head.getNext();
 			head.getPrev().swish();
 			reverse();
 		}
 		head.swish();
-	}}
+	}
 public static int l=0;
 	public static void zip(RecIntList l1, RecIntList l2) {
 		// TODO
