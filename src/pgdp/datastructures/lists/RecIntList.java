@@ -135,9 +135,8 @@ public class RecIntList {
 		// TODO
 		if (size()!=0){
 		if(head.getNext()!=null) {
-			RecIntListElement saved = head;
 			head = head.getNext();
-			saved.swish();
+			head.getPrev().swish();
 			reverse();
 		}
 		head.swish();
