@@ -4,10 +4,7 @@ public class RecIntListElement {
 	private int value;
 	private RecIntListElement next;
 	private RecIntListElement prev;
-	///////////////////////////////////////
-	//private RecIntListElement prev2;
-	//private RecIntListElement next2;
-///////////////////////////////////
+
 	public RecIntListElement(int value) {
 		this(value, null);
 	}
@@ -16,9 +13,6 @@ public class RecIntListElement {
 		this.value = value;
 		next = null;
 		this.prev = prev;
-		///////////////
-		//next2=null;
-		//this.prev2=prev;
 	}
 //_-_-_-_-_____-_-------__-_
 	public RecIntListElement append(int value) {
@@ -128,6 +122,11 @@ public class RecIntListElement {
 	}
 	public void zipp(RecIntListElement a,RecIntListElement b){
 
+	}
+	public void swish(){
+		RecIntListElement x=next;
+		next=prev;
+		prev=x;
 	}
 
 

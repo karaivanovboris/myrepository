@@ -133,7 +133,15 @@ public class RecIntList {
 
 	public void reverse() {
 		// TODO
-	}
+		if (size()!=0){
+		if(head.getNext()!=null) {
+			RecIntListElement saved = head;
+			head = head.getNext();
+			saved.swish();
+			reverse();
+		}
+		head.swish();
+	}}
 public static int l=0;
 	public static void zip(RecIntList l1, RecIntList l2) {
 		// TODO
