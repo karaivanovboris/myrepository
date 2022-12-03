@@ -130,8 +130,6 @@ public class RecIntList {
 			kinguinSort(increasing);
 		}
 	}
-	private static RecIntListElement x;
-	private static boolean check;
 	public void reverse() {
 			if(head.getNext()!=null) {
 				head = head.getNext();
