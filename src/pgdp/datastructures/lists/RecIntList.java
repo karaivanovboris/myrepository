@@ -131,6 +131,7 @@ public class RecIntList {
 		}
 	}
 	public void reverse() {
+		if(this.head!=null){
 			if(head.getNext()!=null) {
 				head = head.getNext();
 				head.getPrev().swish();
@@ -138,7 +139,7 @@ public class RecIntList {
 			}
 			if (head.getNext()==null){
 			head.swish();}
-		}
+		}}
 public static int l=0;
 	public static void zip(RecIntList l1, RecIntList l2) {
 		// TODO
@@ -198,7 +199,7 @@ public static int l=0;
 
 		// reverse example
 		RecIntList reverseExample = new RecIntList();
-		for (int i = 1; i < 7; i++) {
+		for (int i = 1; i < 3; i++) {
 			reverseExample.append(i);
 		}
 		reverseExample.reverse();
