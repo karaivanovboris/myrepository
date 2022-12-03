@@ -130,17 +130,16 @@ public class RecIntList {
 			kinguinSort(increasing);
 		}
 	}
-
+	private static RecIntListElement x;
+	private static boolean check;
 	public void reverse() {
-		// TODO
 			if(head.getNext()!=null) {
 				head = head.getNext();
 				head.getPrev().swish();
 				reverse();
 			}
-			if(head.getPrev()!=null){
-			head.setNext(head.getPrev());
-			head.setPrev(null);}
+			if (head.getNext()==null){
+			head.swish();}
 		}
 public static int l=0;
 	public static void zip(RecIntList l1, RecIntList l2) {
