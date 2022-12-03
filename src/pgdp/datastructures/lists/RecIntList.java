@@ -133,14 +133,15 @@ public class RecIntList {
 
 	public void reverse() {
 		// TODO
-		if (size()==0){return;}
-		if(head.getNext()!=null) {
-			head = head.getNext();
-			head.getPrev().swish();
-			reverse();
+			if(head.getNext()!=null) {
+				head = head.getNext();
+				head.getPrev().swish();
+				reverse();
+			}
+			if(head.getPrev()!=null){
+			head.setNext(head.getPrev());
+			head.setPrev(null);}
 		}
-		head.swish();
-	}
 public static int l=0;
 	public static void zip(RecIntList l1, RecIntList l2) {
 		// TODO
@@ -181,7 +182,7 @@ public static int l=0;
 	public static void main(String[] args) {
 		// countThresh example
 		RecIntList countThreshExample = new RecIntList();
-		for (int i = 1; i <= 5; i++) {
+		for (int i = 1; i <= 8; i++) {
 			countThreshExample.append(i);
 		}
 		System.out.println(Arrays.toString(countThreshExample.countThresh(3)));
@@ -200,7 +201,7 @@ public static int l=0;
 
 		// reverse example
 		RecIntList reverseExample = new RecIntList();
-		for (int i = 1; i < 6; i++) {
+		for (int i = 1; i < 7; i++) {
 			reverseExample.append(i);
 		}
 		reverseExample.reverse();
